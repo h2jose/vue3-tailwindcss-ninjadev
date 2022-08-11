@@ -2,28 +2,64 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## 1  Introduction
 
 ```sh
-npm install
+npm init vue@latest
 ```
 
-### Compile and Hot-Reload for Development
+## 2 Tailwind setup
 
 ```sh
-npm run dev
+npm install -D tailwindcss postcss autoprefixer
 ```
-
-### Compile and Minify for Production
 
 ```sh
-npm run build
+ npx tailwindcss init -p
 ```
+
+Tailwind.config.js
+
+```sh
+module.exports = {
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        "weather-primary": "#00668A",
+        "weather-secondary": "#004E71",
+      },
+    },
+    fontFamily: {
+      Roboto: ["Roboto, sans-serif"],
+    },
+    container: {
+      padding: "2rem",
+      center: true,
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+    },
+  },
+  plugins: [],
+};
+```
+
+assets/tailwind.css
+
+```sh
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+main.js
+
+```sh
+import "./assets/tailwind.css"
+```
+
+## 3 Navbar
+
+- cdnjs.com Font-awesome library
